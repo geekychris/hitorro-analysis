@@ -1,0 +1,4 @@
+The quick brown fox jumps over the lazy dog.
+This pangram contains every letter of the alphabet.
+Natural language processing enables computers to understand human text.
+Machine learning algorithms can identify patterns in large datasets.
