@@ -1,0 +1,70 @@
+/*
+ * Copyright (c) 2006-2025 Chris Collins
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+package com.hitorro.analysis.mstparser.io;
+
+import com.hitorro.analysis.mstparser.DependencyInstance;
+
+import java.io.BufferedWriter;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+
+/**
+ * A class that defines common behavior and abstract methods for writers for different formats. <p/> <p> Created: Sat
+ * Nov 10 15:25:10 2001 </p>
+ *
+ * @author Jason Baldridge
+ * @version $Id: DependencyWriter.java 94 2007-01-17 17:05:12Z jasonbaldridge $
+ */
+public abstract class DependencyWriter {
+
+    protected BufferedWriter writer;
+    protected boolean labeled = false;
+
+    public static DependencyWriter createDependencyWriter(String format, boolean labeled) throws IOException {
+        if (format.equals("MST")) {
+            return new MSTWriter(labeled);
+        } else if (format.equals("CONLL")) {
+            return new CONLLWriter(labeled);
+        } else {
+            System.out.println("!!!!!!!  Not a supported format: " + format);
+            System.out.println("********* Assuming CONLL format. **********");
+            return new CONLLWriter(labeled);
+        }
+    }
+
+    public void startWriting(String file) throws IOException {
+        writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), "UTF8"));
+    }
+
+    public void finishWriting() throws IOException {
+        writer.flush();
+        writer.close();
+    }
+
+    public boolean isLabeled() {
+        return labeled;
+    }
+
+    public abstract void write(DependencyInstance instance) throws IOException;
+
+}
