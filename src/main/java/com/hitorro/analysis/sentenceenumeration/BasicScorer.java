@@ -106,7 +106,12 @@ public abstract class BasicScorer<BS extends BasicScorerSentenceWrapper, BE exte
     public BS visit(final String content, char array[], final Span span, final int sentenceNumber) {
         reader.set(array, span.getStart(), span.getEnd() - span.getStart());
         TokenStream ts = analyzer.tokenStream("body", reader);
-        int count = 0;
+		try {
+			ts.reset();
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+		int count = 0;
         try {
             while (ts.incrementToken()) {
                 count++;
