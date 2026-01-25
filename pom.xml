@@ -7,7 +7,7 @@
     
     <groupId>com.hitorro</groupId>
     <artifactId>hitorro-analysis</artifactId>
-    <version>3.0.0</version>
+    <version>3.0.1</version>
     <packaging>jar</packaging>
     
     <name>Hitorro Analysis</name>
