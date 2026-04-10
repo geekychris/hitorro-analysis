@@ -27,9 +27,7 @@ import com.hitorro.util.core.iterator.mappers.BaseMapper;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- */
+
 public class FunctionNodeStripper extends BaseMapper<Tree<String>, Tree<String>> {
     public Tree<String> apply(Tree<String> tree) {
         String transformedLabel = tree.getLabel();

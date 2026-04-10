@@ -28,9 +28,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- *
- */
+
 public class LabeledConstituentEval<L> extends AbstractEval<L> {
     private Set<L> labelsToIgnore;
     private Set<L> punctuationTags;

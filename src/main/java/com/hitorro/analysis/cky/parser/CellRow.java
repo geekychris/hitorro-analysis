@@ -28,9 +28,7 @@ import com.hitorro.analysis.cky.model.UnaryRule;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
-/**
- *
- */
+
 public class CellRow {
     private Rule rule;
     private double prob;

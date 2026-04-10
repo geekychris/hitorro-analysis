@@ -21,9 +21,7 @@
  */
 package com.hitorro.analysis.cky.model;
 
-/**
- *
- */
+
 public interface RuleReceiver {
     public void unaryRule(double prob, String k, String v1);
 

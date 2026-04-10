@@ -34,9 +34,7 @@ import com.hitorro.util.json.keys.propaccess.PropaccessError;
 
 import java.util.List;
 
-/**
- *
- */
+
 public class TokenizingFPHashBaseMap extends FPHashBaseMap {
     private String analyzerString;
     private IsoLanguage lang;

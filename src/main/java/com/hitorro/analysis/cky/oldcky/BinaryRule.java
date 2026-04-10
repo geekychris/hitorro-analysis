@@ -23,9 +23,7 @@ package com.hitorro.analysis.cky.oldcky;
 
 import com.hitorro.util.core.string.Fmt;
 
-/**
- *
- */
+
 public class BinaryRule extends Rule {
     protected String v2;
 

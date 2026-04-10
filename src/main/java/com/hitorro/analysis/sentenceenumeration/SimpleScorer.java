@@ -29,9 +29,7 @@ import com.hitorro.util.core.map.FPHashBaseMapInterface;
 
 import java.util.List;
 
-/**
- *
- */
+
 public class SimpleScorer extends BasicScorer<BasicScorerSentenceWrapper, SimpleScoreEmitter> {
     public SimpleScorer(GenericAnalyzer analyzer, WordBits wb, FPHashBaseMapInterface map) {
         super(analyzer, wb, map);

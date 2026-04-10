@@ -37,9 +37,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-/**
- *
- */
+
 public class GrammarSingletonMapper extends BaseMapper<String, Grammar> {
     public static final FileProperty Path = new FileProperty("cky.grammarpath", "location of where the cky stuff is ", "${ht_data}/parser/");
     public static String EventName = "GrammarSingleton";

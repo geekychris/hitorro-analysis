@@ -21,9 +21,7 @@
  */
 package com.hitorro.analysis.sentenceenumeration.collectingscorer;
 
-/**
- *
- */
+
 public enum TermHitAdjacency {
     // no overlap
     NOOVERLAP,

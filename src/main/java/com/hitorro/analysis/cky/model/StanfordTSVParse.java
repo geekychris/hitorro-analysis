@@ -29,9 +29,7 @@ import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
 import java.util.Iterator;
 
-/**
- *
- */
+
 public class StanfordTSVParse {
     public static void parse(RuleReceiver receiver, File file, boolean unaryFile) throws FileNotFoundException, UnsupportedEncodingException {
         Iterator<String> iter = FileUtil.getLineReaderIteratorFromFile(file, "UTF-8");

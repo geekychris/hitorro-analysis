@@ -35,9 +35,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 
-/**
- *
- */
+
 public class JenaJungGraph implements DirectedGraph<RDFNode, Statement> {
     final static boolean log = false;
     private final Model model;

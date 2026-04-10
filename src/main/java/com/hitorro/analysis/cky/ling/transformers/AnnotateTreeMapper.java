@@ -25,9 +25,7 @@ import com.hitorro.analysis.cky.ling.Tree;
 import com.hitorro.analysis.cky.model.TreeAnnotations;
 import com.hitorro.util.core.iterator.mappers.BaseMapper;
 
-/**
- *
- */
+
 public class AnnotateTreeMapper extends BaseMapper<Tree<String>, Tree<String>> {
     public static AnnotateTreeMapper instance = new AnnotateTreeMapper();
 

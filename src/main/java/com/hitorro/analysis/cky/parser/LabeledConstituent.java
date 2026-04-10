@@ -21,9 +21,7 @@
  */
 package com.hitorro.analysis.cky.parser;
 
-/**
- *
- */
+
 public class LabeledConstituent<L> {
     L label;
     int start;

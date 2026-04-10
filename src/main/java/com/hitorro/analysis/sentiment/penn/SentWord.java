@@ -24,9 +24,7 @@ package com.hitorro.analysis.sentiment.penn;
 import com.hitorro.language.IsoLanguage;
 import com.hitorro.language.PATElem;
 
-/**
- *
- */
+
 public class SentWord {
     /**
      * adj -> jj

@@ -28,9 +28,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-/**
- *
- */
+
 public class GENIATreeReader extends TreeReader {
 
     public GENIATreeReader(Reader in) {

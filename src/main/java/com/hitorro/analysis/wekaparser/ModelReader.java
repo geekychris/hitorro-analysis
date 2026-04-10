@@ -31,9 +31,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
 
-/**
- *
- */
+
 public class ModelReader<T extends Node> {
     private static Map<String, Class> impls = new HashMap();
 

@@ -27,9 +27,7 @@ import java.io.IOException;
 import java.io.PushbackReader;
 import java.util.NoSuchElementException;
 
-/**
- *
- */
+
 public abstract class TreeReader extends AbstractIterator<Tree<String>> {
     public static String ROOT_LABEL = "ROOT";
 

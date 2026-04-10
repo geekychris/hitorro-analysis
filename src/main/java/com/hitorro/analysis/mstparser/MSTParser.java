@@ -31,9 +31,7 @@ import com.hitorro.util.json.keys.FileProperty;
 import java.io.File;
 import java.io.IOException;
 
-/**
- *
- */
+
 public class MSTParser implements PooledObjectIntf<IsoLanguage> {
     public static final FileProperty ModelDirKey = new FileProperty("mstparser.root", "root directory for models", "${ht_data}/mstparser/model/");
     public static final String LAB = "LAB";

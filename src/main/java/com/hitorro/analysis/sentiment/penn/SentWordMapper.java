@@ -26,9 +26,7 @@ import com.hitorro.util.core.iterator.mappers.BaseMapper;
 import com.hitorro.util.json.keys.BooleanProperty;
 import com.hitorro.util.json.keys.StringProperty;
 
-/**
- *
- */
+
 public class SentWordMapper extends BaseMapper<JVS, SentWord> {
     public static final StringProperty PosKey = new StringProperty("pos1", "", null);
     public static final StringProperty PriorPolarityKey = new StringProperty("priorpolarity", "", null);

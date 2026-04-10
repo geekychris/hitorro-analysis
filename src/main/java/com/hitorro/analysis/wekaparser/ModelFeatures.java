@@ -24,9 +24,7 @@ package com.hitorro.analysis.wekaparser;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- */
+
 public class ModelFeatures implements ModelBufferVisitor {
     private String scheme;
     private String relation;

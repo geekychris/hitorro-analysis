@@ -26,9 +26,7 @@ import com.hitorro.obj.core.GenericAnalyzer;
 import com.hitorro.util.core.longword.WordBits;
 import com.hitorro.util.core.map.FPHashBaseMapInterface;
 
-/**
- *
- */
+
 public class CollectingPhraseScorer extends BasicScorer<CollectingSentenceWrapper, CollectingEmitter> {
     private int maxHits;
 

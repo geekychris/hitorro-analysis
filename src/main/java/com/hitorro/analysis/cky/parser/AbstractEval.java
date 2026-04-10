@@ -27,9 +27,7 @@ import java.io.PrintWriter;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- *
- */
+
 abstract class AbstractEval<L> {
 
     protected String str = "";

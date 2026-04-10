@@ -21,9 +21,7 @@
  */
 package com.hitorro.analysis.cky.parser;
 
-/**
- *
- */
+
 public abstract class ObjectBlockCache<E> {
     int index = 1;
     private int bits = 12;

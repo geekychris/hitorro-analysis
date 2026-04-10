@@ -23,9 +23,7 @@ package com.hitorro.analysis.sentenceenumeration.collectingscorer;
 
 import com.hitorro.util.core.string.Fmt;
 
-/**
- *
- */
+
 public class PhraseHit {
     public long fingerPrint;
     public String txt;

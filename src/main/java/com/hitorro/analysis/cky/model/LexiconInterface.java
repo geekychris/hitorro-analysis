@@ -24,9 +24,7 @@ package com.hitorro.analysis.cky.model;
 import java.util.List;
 import java.util.Set;
 
-/**
- *
- */
+
 public interface LexiconInterface {
     public List<Rule>[] get(String toks[]);
 

@@ -37,9 +37,7 @@ import com.hitorro.util.startupframework.ServiceContext;
 import java.io.IOException;
 import java.text.ParseException;
 
-/**
- *
- */
+
 public class GenderMapper extends BaseMapper<String[], String> implements EventListener {
     public static GenderMapper defaultMapper = new GenderMapper(true);
     public static BaseMapper GenderCompositeMapper = StringToTokensMapper.spaceMapper.combine(GenderMapper.defaultMapper);

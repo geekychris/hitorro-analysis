@@ -21,9 +21,7 @@
  */
 package com.hitorro.analysis.cky.oldcky;
 
-/**
- *
- */
+
 public class UnaryRule extends Rule {
     public UnaryRule(String from, String v1, double prob) {
         super(from, v1, prob);

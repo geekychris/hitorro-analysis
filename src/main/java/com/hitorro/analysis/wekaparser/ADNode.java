@@ -28,9 +28,7 @@ import com.hitorro.util.core.string.StringUtil;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- */
+
 public class ADNode implements Node {
     int depth;
     String feature;

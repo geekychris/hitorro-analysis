@@ -32,9 +32,7 @@ import com.hitorro.util.json.keys.DoubleProperty;
 import com.hitorro.util.json.keys.IntegerProperty;
 import com.hitorro.util.json.keys.StringProperty;
 
-/**
- *
- */
+
 @CommandDef(command = "lda.chunkParser", description = "")
 public class LDACommand extends Command {
     @CommandArgument(required = false)

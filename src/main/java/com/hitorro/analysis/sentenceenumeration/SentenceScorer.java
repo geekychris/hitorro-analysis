@@ -23,9 +23,7 @@ package com.hitorro.analysis.sentenceenumeration;
 
 import opennlp.tools.util.Span;
 
-/**
- *
- */
+
 public interface SentenceScorer<T extends BaseSentenceWrapper, BE extends BaseEmitter> {
     T visit(final String content, char array[], final Span span, final int sentenceNumber);
 

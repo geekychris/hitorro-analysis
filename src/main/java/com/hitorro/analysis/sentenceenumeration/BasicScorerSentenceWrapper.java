@@ -21,9 +21,7 @@
  */
 package com.hitorro.analysis.sentenceenumeration;
 
-/**
- *
- */
+
 public class BasicScorerSentenceWrapper<BE extends BaseEmitter> extends BaseSentenceWrapper<BE> {
     public BasicScorerSentenceWrapper() {
         super();

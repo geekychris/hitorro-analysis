@@ -31,9 +31,7 @@ import com.hitorro.util.io.FileUtil;
 import java.io.File;
 import java.io.FileNotFoundException;
 
-/**
- *
- */
+
 public class PennFileMapper implements Mapper<File, AbstractIterator<Tree<String>>> {
     public static PennFileMapper instance = new PennFileMapper();
 

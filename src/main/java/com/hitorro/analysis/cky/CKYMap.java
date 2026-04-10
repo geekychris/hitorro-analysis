@@ -35,9 +35,7 @@ import com.hitorro.util.core.iterator.JsonValueSource;
 import com.hitorro.util.core.iterator.mappers.BaseMapper;
 import com.hitorro.util.core.string.StringUtil;
 
-/**
- *
- */
+
 public class CKYMap extends BaseMapper<JsonValueSource, JsonValueSource> {
     private CKYParser parser = null;
     private String arr[][];

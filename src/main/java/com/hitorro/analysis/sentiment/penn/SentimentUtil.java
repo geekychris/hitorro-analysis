@@ -28,9 +28,7 @@ import com.hitorro.util.core.CommandArgsMapper;
 import com.hitorro.util.core.iterator.AbstractIterator;
 import com.hitorro.util.json.keys.BasefileProperty;
 
-/**
- *
- */
+
 public class SentimentUtil {
     public static BasefileProperty BaseDirProperty = new BasefileProperty("sentiment.penndir", "", "file://${ht_data}/sentiment/penn/en/subjclueslen1-HLTEMNLP05.tff");
 

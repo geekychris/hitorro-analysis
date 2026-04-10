@@ -30,9 +30,7 @@ import com.hitorro.util.core.opers.HTPredicate;
 import java.util.Arrays;
 import java.util.Iterator;
 
-/**
- *
- */
+
 public class PhraseCollection {
     private PhraseHit hits[];
     private int maxHits;

@@ -27,9 +27,7 @@ import com.hitorro.util.core.iterator.mappers.BaseMapper;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- */
+
 public class EmptyNodeStripper extends BaseMapper<Tree<String>, Tree<String>> {
     public Tree<String> apply(Tree<String> tree) {
         String label = tree.getLabel();

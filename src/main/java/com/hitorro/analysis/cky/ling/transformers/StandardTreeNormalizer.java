@@ -24,9 +24,7 @@ package com.hitorro.analysis.cky.ling.transformers;
 import com.hitorro.analysis.cky.ling.Tree;
 import com.hitorro.util.core.iterator.mappers.BaseMapper;
 
-/**
- *
- */
+
 public class StandardTreeNormalizer extends BaseMapper<Tree<String>, Tree<String>> {
     public static StandardTreeNormalizer instance = new StandardTreeNormalizer();
 

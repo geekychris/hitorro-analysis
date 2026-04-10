@@ -23,9 +23,7 @@ package com.hitorro.analysis.cky.model;
 
 import java.util.HashSet;
 
-/**
- *
- */
+
 public abstract class Rule {
     String name;
     int parentId;

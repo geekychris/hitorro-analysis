@@ -24,9 +24,7 @@ package com.hitorro.analysis.cky.oldcky;
 import com.hitorro.util.core.string.Fmt;
 import com.hitorro.util.core.string.StringUtil;
 
-/**
- *
- */
+
 public abstract class Rule {
     protected double prob;
     protected String key;

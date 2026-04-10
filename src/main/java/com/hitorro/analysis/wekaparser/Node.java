@@ -21,8 +21,6 @@
  */
 package com.hitorro.analysis.wekaparser;
 
-/**
- *
- */
+
 public interface Node {
 }

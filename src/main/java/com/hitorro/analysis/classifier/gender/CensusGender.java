@@ -28,9 +28,7 @@ import com.hitorro.util.io.csv.SpaceReader;
 import com.hitorro.util.io.csv.csvconsumer.CSVConsumer;
 import com.hitorro.util.json.keys.BasefileProperty;
 
-/**
- *
- */
+
 public class CensusGender {
     public BasefileProperty CensusDir = new BasefileProperty("analysis.isQuestionClassifier.census.dir", "", "file://${ht_data}/classifiers/census_names");
     protected int part;

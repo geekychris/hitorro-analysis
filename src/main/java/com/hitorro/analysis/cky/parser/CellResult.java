@@ -30,9 +30,7 @@ import com.hitorro.analysis.cky.model.UnaryRule;
 import java.util.LinkedList;
 import java.util.List;
 
-/**
- *
- */
+
 public class CellResult {
     public String rows[];
     int i;

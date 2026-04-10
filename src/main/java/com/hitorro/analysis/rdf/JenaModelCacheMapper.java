@@ -32,9 +32,7 @@ import org.apache.jena.rdf.model.ModelFactory;
 
 import java.io.*;
 
-/**
- *
- */
+
 public class JenaModelCacheMapper extends BaseMapper<String, Model> {
     public static String EventName = "Jenamodel";
     public static HashCache<String, Model> instance = new HashCache(EventName, new JenaModelCacheMapper());

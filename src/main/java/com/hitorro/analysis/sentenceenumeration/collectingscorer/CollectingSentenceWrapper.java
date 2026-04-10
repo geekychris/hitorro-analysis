@@ -24,9 +24,7 @@ package com.hitorro.analysis.sentenceenumeration.collectingscorer;
 import com.hitorro.analysis.sentenceenumeration.BasicScorerSentenceWrapper;
 import opennlp.tools.util.Span;
 
-/**
- *
- */
+
 public class CollectingSentenceWrapper extends BasicScorerSentenceWrapper<CollectingEmitter> {
     private PhraseCollection pc;
 

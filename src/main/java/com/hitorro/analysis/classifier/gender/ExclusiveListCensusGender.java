@@ -33,9 +33,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- *
- */
+
 public class ExclusiveListCensusGender extends CensusGender {
     private HashMap<String, String> master;
     private HashMap<String, String> last;

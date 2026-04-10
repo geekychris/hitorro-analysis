@@ -25,9 +25,7 @@ import com.hitorro.analysis.cky.ling.Tree;
 import com.hitorro.analysis.cky.model.TreeAnnotations;
 import com.hitorro.util.core.iterator.mappers.BaseMapper;
 
-/**
- *
- */
+
 public class VeritcalMarkovizationMapper extends BaseMapper<Tree<String>, Tree<String>> {
     public static VeritcalMarkovizationMapper instance = new VeritcalMarkovizationMapper();
 

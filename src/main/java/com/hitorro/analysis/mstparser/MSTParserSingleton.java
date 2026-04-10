@@ -29,9 +29,7 @@ import com.hitorro.util.core.iterator.mappers.BaseMapper;
 
 import java.io.IOException;
 
-/**
- *
- */
+
 public class MSTParserSingleton extends BaseMapper<IsoLanguage, MSTParser> {
     public static final String MSTParserKey = "mstparser";
     public static final HashCache<IsoLanguage, PoolContainer<IsoLanguage, MSTParser>> singleton = HashCache.getPooledCache(MSTParserKey, 10, new MSTParserSingleton());

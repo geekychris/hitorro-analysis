@@ -26,9 +26,7 @@ import com.hitorro.util.core.string.Fmt;
 
 import java.text.DecimalFormat;
 
-/**
- *
- */
+
 public class CellRow {
     Rule rule;
     double prob;

@@ -30,9 +30,7 @@ import com.hitorro.util.json.keys.propaccess.PropaccessError;
 
 import java.util.List;
 
-/**
- *
- */
+
 public class CountSink implements Sink<JVS> {
     private CounterMap<String, String> counter = new CounterMap();
 

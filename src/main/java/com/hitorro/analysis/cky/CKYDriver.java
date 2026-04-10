@@ -35,9 +35,7 @@ import com.hitorro.util.commandandcontrol.ano.DebugArgAno;
 import com.hitorro.util.core.string.StringUtil;
 import com.hitorro.util.json.keys.StringProperty;
 
-/**
- *
- */
+
 public class CKYDriver {
 
     public static CKYParser parser = null;

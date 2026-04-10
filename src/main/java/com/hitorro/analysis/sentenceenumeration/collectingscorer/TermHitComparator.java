@@ -23,9 +23,7 @@ package com.hitorro.analysis.sentenceenumeration.collectingscorer;
 
 import java.util.Comparator;
 
-/**
- *
- */
+
 public class TermHitComparator implements Comparator<PhraseHit> {
     public static final TermHitComparator comp = new TermHitComparator();
 

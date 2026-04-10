@@ -21,9 +21,7 @@
  */
 package com.hitorro.analysis.wekaparser;
 
-/**
- *
- */
+
 public abstract class TreeVisitor<T extends Node> implements ModelBufferVisitor {
     public abstract String getImplements();
 

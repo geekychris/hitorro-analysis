@@ -32,9 +32,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-/**
- *
- */
+
 public class OpenNLPCKYLexicon implements LexiconInterface {
     private IsoLanguage lang;
 

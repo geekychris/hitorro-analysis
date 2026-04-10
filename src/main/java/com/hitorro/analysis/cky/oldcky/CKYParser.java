@@ -29,9 +29,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- *
- */
+
 public class CKYParser implements RuleReceiver {
     protected Map<String, ArrayList<Rule>> rules = new HashMap();
 

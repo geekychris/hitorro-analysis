@@ -27,9 +27,7 @@ import com.hitorro.util.core.iterator.mappers.BaseMapper;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- */
+
 public class XOverXRemover<E> extends BaseMapper<Tree<E>, Tree<E>> {
     public Tree<E> apply(Tree<E> tree) {
         E label = tree.getLabel();

@@ -26,9 +26,7 @@ import com.hitorro.util.core.string.Fmt;
 
 import java.util.ArrayList;
 
-/**
- *
- */
+
 public class DependencyResult {
     public DependencyInstance instance;
     public String posNoRoot[];

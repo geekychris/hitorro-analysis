@@ -25,9 +25,7 @@ import com.hitorro.util.core.longword.opers.LogicalOperator2LongOperatorBridge;
 import com.hitorro.util.core.longword.opers.LongOperator;
 
 
-/**
- *
- */
+
 public class PhraseHitLogicalLongOper extends LogicalOperator2LongOperatorBridge<PhraseHit> {
     public PhraseHitLogicalLongOper(LongOperator longOper) {
         super(longOper);

@@ -23,9 +23,7 @@ package com.hitorro.analysis.wekaparser;
 
 import java.util.List;
 
-/**
- *
- */
+
 public interface ModelBufferVisitor {
     public void visit(List<String> buff);
 }

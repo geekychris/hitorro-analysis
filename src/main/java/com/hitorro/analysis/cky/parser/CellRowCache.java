@@ -21,9 +21,7 @@
  */
 package com.hitorro.analysis.cky.parser;
 
-/**
- *
- */
+
 public class CellRowCache extends ObjectBlockCache<CellRow> {
 
     @Override
