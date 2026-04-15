@@ -39,9 +39,9 @@ import java.util.List;
 
 
 public class GrammarSingletonMapper extends BaseMapper<String, Grammar> {
-    public static final FileProperty Path = new FileProperty("cky.grammarpath", "location of where the cky stuff is ", "${ht_data}/parser/");
-    public static String EventName = "GrammarSingleton";
-    public static final HashCache<String, Grammar> singleton = new HashCache<String, Grammar>(EventName, new GrammarSingletonMapper());
+    public static FileProperty Path = new FileProperty("cky.grammarpath", "location of where the cky stuff is ", "${ht_data}/parser/");
+    public static final String EventName = "GrammarSingleton";
+    public static HashCache<String, Grammar> singleton = new HashCache<String, Grammar>(EventName, new GrammarSingletonMapper());
 
     /**
      * do the standard cleaning, 2nd order vertical markovization and then binarize

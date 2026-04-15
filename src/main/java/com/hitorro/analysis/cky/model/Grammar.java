@@ -37,7 +37,7 @@ import java.util.*;
  * are just relative frequency estimates off of training trees.
  */
 public class Grammar {
-    public static final Rule[] empty = new Rule[0];
+    public static Rule[] empty = new Rule[0];
     public Map<String, String[]> leftToRightDependencyArr = new HashMap<String, String[]>();
     public IDObjectMap<Rule> idMap = new IDObjectMap();
     Map<String, List<UnaryRule>> unaryRulesByChild =
@@ -82,11 +82,11 @@ public class Grammar {
         return StringUtil.strcat(l.getRule().getName(), "#", r.getRule().getName());
     }
 
-    public static String getKey(Rule l, Rule r) {
+    public static final String getKey(Rule l, Rule r) {
         return StringUtil.strcat(l.getName(), "#", r.getName());
     }
 
-    public static String getKey(String l, String r) {
+    public static final String getKey(String l, String r) {
         return StringUtil.strcat(l, "#", r);
     }
 

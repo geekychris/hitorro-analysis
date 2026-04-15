@@ -196,7 +196,7 @@ public class Trees {
     }
 
     public static class TreeReader {
-        public static String ROOT_LABEL = "ROOT";
+        public static final String ROOT_LABEL = "ROOT";
 
         PushbackReader in;
         Tree<String> nextTree;

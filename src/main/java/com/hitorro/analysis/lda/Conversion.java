@@ -22,7 +22,7 @@
 package com.hitorro.analysis.lda;
 
 public class Conversion {
-    public static String ZeroPad(int number, int width) {
+    public static final String ZeroPad(int number, int width) {
         StringBuffer result = new StringBuffer("");
         for (int i = 0; i < width - Integer.toString(number).length(); i++) {
             result.append("0");

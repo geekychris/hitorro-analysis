@@ -28,11 +28,11 @@ import com.hitorro.util.json.keys.StringProperty;
 
 
 public class SentWordMapper extends BaseMapper<JVS, SentWord> {
-    public static final StringProperty PosKey = new StringProperty("pos1", "", null);
-    public static final StringProperty PriorPolarityKey = new StringProperty("priorpolarity", "", null);
-    public static final StringProperty TypeKey = new StringProperty("type", "", null);
-    public static final StringProperty WordKey = new StringProperty("word1", "", null);
-    public static final BooleanProperty StemmedKey = new BooleanProperty("stemmed1", "", false);
+    public static StringProperty PosKey = new StringProperty("pos1", "", null);
+    public static StringProperty PriorPolarityKey = new StringProperty("priorpolarity", "", null);
+    public static StringProperty TypeKey = new StringProperty("type", "", null);
+    public static StringProperty WordKey = new StringProperty("word1", "", null);
+    public static BooleanProperty StemmedKey = new BooleanProperty("stemmed1", "", false);
     public static SentWordMapper instance = new SentWordMapper();
 
     @Override

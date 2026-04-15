@@ -34,7 +34,7 @@ import java.io.*;
 
 
 public class JenaModelCacheMapper extends BaseMapper<String, Model> {
-    public static String EventName = "Jenamodel";
+    public static final String EventName = "Jenamodel";
     public static HashCache<String, Model> instance = new HashCache(EventName, new JenaModelCacheMapper());
 
     public Model apply(final String key) {

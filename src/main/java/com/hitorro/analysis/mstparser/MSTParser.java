@@ -33,7 +33,7 @@ import java.io.IOException;
 
 
 public class MSTParser implements PooledObjectIntf<IsoLanguage> {
-    public static final FileProperty ModelDirKey = new FileProperty("mstparser.root", "root directory for models", "${ht_data}/mstparser/model/");
+    public static FileProperty ModelDirKey = new FileProperty("mstparser.root", "root directory for models", "${ht_data}/mstparser/model/");
     public static final String LAB = "LAB";
     private int generation;
     private DependencyParser dp;

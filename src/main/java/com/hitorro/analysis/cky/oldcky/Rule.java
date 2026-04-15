@@ -39,11 +39,11 @@ public abstract class Rule {
         this.v1 = v1;
     }
 
-    public static String key(String v1) {
+    public static final String key(String v1) {
         return v1;
     }
 
-    public static String key(String v1, String v2) {
+    public static final String key(String v1, String v2) {
         return StringUtil.strcat(v1, "+", v2);
     }
 

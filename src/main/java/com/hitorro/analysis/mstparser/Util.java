@@ -49,7 +49,7 @@ public class Util {
         return nums;
     }
 
-    public static String join(String[] a, char sep) {
+    public static final String join(String[] a, char sep) {
         StringBuffer sb = new StringBuffer();
         sb.append(a[0]);
         for (int i = 1; i < a.length; i++) {
@@ -58,7 +58,7 @@ public class Util {
         return sb.toString();
     }
 
-    public static String join(int[] a, char sep) {
+    public static final String join(int[] a, char sep) {
         StringBuffer sb = new StringBuffer();
         sb.append(a[0]);
         for (int i = 1; i < a.length; i++) {
@@ -67,7 +67,7 @@ public class Util {
         return sb.toString();
     }
 
-    public static String join(double[] a, char sep, int fractionDigits) {
+    public static final String join(double[] a, char sep, int fractionDigits) {
         StringBuffer sb = new StringBuffer();
         DecimalFormat df = new DecimalFormat();
         df.setMaximumFractionDigits(fractionDigits);

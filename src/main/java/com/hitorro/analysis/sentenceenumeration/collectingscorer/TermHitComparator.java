@@ -25,7 +25,7 @@ import java.util.Comparator;
 
 
 public class TermHitComparator implements Comparator<PhraseHit> {
-    public static final TermHitComparator comp = new TermHitComparator();
+    public static TermHitComparator comp = new TermHitComparator();
 
     @Override
     public int compare(final PhraseHit termHit, final PhraseHit termHit1) {

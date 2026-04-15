@@ -29,7 +29,7 @@ import java.util.NoSuchElementException;
 
 
 public abstract class TreeReader extends AbstractIterator<Tree<String>> {
-    public static String ROOT_LABEL = "ROOT";
+    public static final String ROOT_LABEL = "ROOT";
 
     protected PushbackReader in;
     protected Tree<String> nextTree;
