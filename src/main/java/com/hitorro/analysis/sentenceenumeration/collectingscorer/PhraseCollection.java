@@ -25,7 +25,6 @@ import gnu.trove.map.hash.TIntObjectHashMap;
 import com.hitorro.util.core.longword.NamedBitsOfLong;
 import com.hitorro.util.core.longword.WordBits;
 import com.hitorro.util.core.map.FPHashBaseMap;
-import com.hitorro.util.core.opers.HTPredicate;
 
 import java.util.Arrays;
 import java.util.Iterator;
@@ -119,11 +118,11 @@ public class PhraseCollection {
      * @param oper
      * @return
      */
-    public int indeOf(int startIndex, HTPredicate<PhraseHit> oper) {
+    public int indeOf(int startIndex, java.util.function.Predicate<PhraseHit> oper) {
         return indeOf(startIndex, hitIndex, oper);
     }
 
-    public int indeOf(int startIndex, int endIndex, HTPredicate<PhraseHit> oper) {
+    public int indeOf(int startIndex, int endIndex, java.util.function.Predicate<PhraseHit> oper) {
         if (startIndex < hitIndex) {
             for (int i = startIndex; i < endIndex; i++) {
                 if (oper.test(hits[i])) {

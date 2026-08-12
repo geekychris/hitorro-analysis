@@ -77,7 +77,7 @@ public class TokenizingFPHashBaseMap extends FPHashBaseMap {
             } catch (PropaccessError propaccessError) {
 
             }
-            updateRecord(jvs, phrase, layer);
+            updateRecord(jvs.getJsonNode(), phrase, layer);
         }
         return this;
     }

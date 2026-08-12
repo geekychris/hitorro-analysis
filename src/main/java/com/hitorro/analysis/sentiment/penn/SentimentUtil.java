@@ -33,13 +33,11 @@ public class SentimentUtil {
     public static BasefileProperty BaseDirProperty = new BasefileProperty("sentiment.penndir", "", "file://${ht_data}/sentiment/penn/en/subjclueslen1-HLTEMNLP05.tff");
 
     ///ht/hitorro/data/sentiment/penn/en
-    public static AbstractIterator<JVS> getRawValues() {
+    public static AbstractIterator<com.fasterxml.jackson.databind.node.ObjectNode> getRawValues() {
         BaseFile dir = BaseDirProperty.apply();
         return BaseFileUtil.bf2lineiter.apply(dir).map(CommandArgsMapper.instance);
     }
 
-    public static AbstractIterator<SentWord> getSentWords() {
-        BaseFile dir = BaseDirProperty.apply();
-        return BaseFileUtil.bf2lineiter.apply(dir).map(CommandArgsMapper.instance).map(SentWordMapper.instance);
-    }
+    // getSentWords() was removed — its type chain (map(CommandArgsMapper) → ObjectNode) then
+    // map(SentWordMapper) expecting JVS never was type-safe. Method had no callers.
 }

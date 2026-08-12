@@ -56,13 +56,14 @@ public class SEBuilder {
         public List<GenericKeyValue<String, Integer>> apply(IsoLanguage lang) {
             List<GenericKeyValue<String, Integer>> sent = new ArrayList();
 
-            CountSink sink = new CountSink();
+            @SuppressWarnings({"rawtypes","unchecked"})
+            com.hitorro.util.core.iterator.sinks.Sink sink = new CountSink();
             try {
-                SentimentUtil.getRawValues().sink(sink);
+                SentimentUtil.getRawValues().sink((com.hitorro.util.core.iterator.sinks.Sink) sink);
             } catch (IOException e) {
                 return null;
             }
-            Counter<String> c = sink.getCounters().getCounter("word1");
+            Counter<String> c = ((CountSink) sink).getCounters().getCounter("word1");
             for (String word : c.keySet()) {
                 sent.add(new GenericKeyValue<String, Integer>(word, 1));
             }

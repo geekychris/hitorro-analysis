@@ -21,7 +21,7 @@
         <maven.compiler.target>21</maven.compiler.target>
         
         <!-- Hitorro internal versions -->
-        <hitorro.version>3.0.0</hitorro.version>
+        <hitorro.version>3.0.1</hitorro.version>
         
         <!-- External library versions -->
         <trove4j.version>3.0.3</trove4j.version>
@@ -50,6 +50,16 @@
     </repositories>
     
     <dependencies>
+        <dependency>
+            <groupId>com.hitorro</groupId>
+            <artifactId>hitorro-streams</artifactId>
+            <version>3.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.hitorro</groupId>
+            <artifactId>hitorro-basefile</artifactId>
+            <version>3.0.1</version>
+        </dependency>
         <!-- Hitorro internal dependencies -->
         <dependency>
             <groupId>com.hitorro</groupId>

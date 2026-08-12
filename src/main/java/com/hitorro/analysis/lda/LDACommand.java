@@ -67,7 +67,7 @@ public class LDACommand extends Command {
     public static IntegerProperty TWordsKey = new IntegerProperty("twords", "Specify the number of most likely words to be printed for each topic", 100);
 
     @Override
-    public boolean execute(final String rawValue, final JVS args, final Response response, final CommandSession session) {
+    public boolean execute(final String rawValue, final com.fasterxml.jackson.databind.JsonNode args, final Response response, final CommandSession session) {
         LDACmdOption opts = new LDACmdOption();
         opts.est = EstKey.apply(args);
         opts.estc = EstCKey.apply(args);
