@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/logo.png" alt="Hitorro Analysis logo" width="180">
+</p>
+
 # Hitorro Analysis
 
 This is the **hitorro-analysis** project, a standalone Maven-based project for natural language processing, text analysis, parsing, and related functionalities.
