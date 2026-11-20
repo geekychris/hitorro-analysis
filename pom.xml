@@ -476,7 +476,8 @@
         <dependency>
             <groupId>com.hitorro</groupId>
             <artifactId>hitorro-objretrieval</artifactId>
-            <version>${hitorro.version}</version>
+            <!-- 3.0.3: without Solr's end-of-life Jetty 10 -->
+            <version>3.0.3</version>
         </dependency>
         
         <!-- Trove collections (high-performance data structures) -->
