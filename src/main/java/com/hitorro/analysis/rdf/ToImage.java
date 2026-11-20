@@ -22,11 +22,6 @@
 package com.hitorro.analysis.rdf;
 
 
-import edu.uci.ics.jung.algorithms.layout.FRLayout;
-import edu.uci.ics.jung.algorithms.layout.Layout;
-import edu.uci.ics.jung.graph.Graph;
-import edu.uci.ics.jung.visualization.RenderContext;
-import edu.uci.ics.jung.visualization.VisualizationImageServer;
 import com.hitorro.util.core.Log;
 import org.apache.batik.svggen.SVGGraphics2D;
 import org.apache.batik.svggen.SVGGraphics2DIOException;
@@ -41,41 +36,35 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.awt.*;
+import java.awt.geom.Line2D;
+import java.awt.geom.Path2D;
+import java.awt.geom.Point2D;
 import java.awt.image.BufferedImage;
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 
 /**
- * Render a complete Jena model to the
+ * Render a complete Jena model to an image (any ImageIO format) or to SVG:
+ * vertices are the model's subjects and objects, edges its statements, laid
+ * out by {@link RdfGraphLayout}.
  */
 public class ToImage {
+    private static final int VERTEX_RADIUS = 6;
+    private static final Color EDGE = new Color(0x80, 0x80, 0x80);
+    private static final Color VERTEX = new Color(0xd0, 0x30, 0x30);
+    private static final Color LABEL = Color.black;
 
     public static boolean render(Model model, File f, String format, int width, int height) {
-        Graph<RDFNode, Statement> g = new JenaJungGraph(model);
-
-        Layout<RDFNode, Statement> layout = new FRLayout(g);
-
-
-        layout.setSize(new Dimension(width, height));
-        VisualizationImageServer<RDFNode, Statement> viz =
-                new VisualizationImageServer(layout, new Dimension(width, height));
-        RenderContext context = viz.getRenderContext();
-        context.setEdgeLabelTransformer(Transformers.EDGE);
-        context.setVertexLabelTransformer(Transformers.NODE);
-
-
-        viz.setPreferredSize(new Dimension(width, height));
-        Image img = viz.getImage(new Point(width / 2, height / 2), new Dimension(width, height));
-
         BufferedImage bi = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
         Graphics2D g2d = bi.createGraphics();
-        // Fill the background in white
-        g2d.setColor(Color.white);
-        g2d.fillRect(0, 0, width, height);
-
-        // Draw the image
-        g2d.setColor(Color.white);
-        g2d.drawImage(img, 0, 0, width, height, Color.blue, null);
-
+        try {
+            // Fill the background in white
+            g2d.setColor(Color.white);
+            g2d.fillRect(0, 0, width, height);
+            paint(g2d, new RdfGraphLayout(model, width, height));
+        } finally {
+            g2d.dispose();
+        }
         try {
             // Save the image to a file
             ImageIO.write(bi, format, f);
@@ -87,35 +76,58 @@ public class ToImage {
     }
 
     public static void toSVG(Model model, File f, int width, int height) throws UnsupportedEncodingException, SVGGraphics2DIOException, IOException, ParserConfigurationException {
-
-        Graph<RDFNode, Statement> g = new JenaJungGraph(model);
-
-        Layout<RDFNode, Statement> layout = new FRLayout(g);
-
-
-        layout.setSize(new Dimension(width, height));
-        VisualizationImageServer<RDFNode, Statement> viz =
-                new VisualizationImageServer(layout, new Dimension(width, height));
-        RenderContext context = viz.getRenderContext();
-        context.setEdgeLabelTransformer(Transformers.EDGE);
-        context.setVertexLabelTransformer(Transformers.NODE);
-
-
-        viz.setPreferredSize(new Dimension(width, height));
-
         DocumentBuilder dbf = DocumentBuilderFactory.newInstance().newDocumentBuilder();
         DOMImplementation domImpl = dbf.getDOMImplementation();
-
         // Create an instance of org.w3c.dom.Document.
         String svgNS = "http://www.w3.org/2000/svg";
         Document document = domImpl.createDocument(svgNS, "svg", null);
-
         // Create an instance of the SVG Generator.
         SVGGraphics2D svgGenerator = new SVGGraphics2D(document);
+        svgGenerator.setSVGCanvasSize(new Dimension(width, height));
+        paint(svgGenerator, new RdfGraphLayout(model, width, height));
+        try (Writer out = new OutputStreamWriter(new FileOutputStream(f), StandardCharsets.UTF_8)) {
+            svgGenerator.stream(out, true);
+        }
+    }
 
-        viz.paint(svgGenerator); // Hrm, is this right??
+    /**
+     * Draws the laid-out graph: edges with an arrowhead and the predicate as label,
+     * then vertices with their label (Transformers.EDGE and Transformers.NODE).
+     */
+    static void paint(Graphics2D g, RdfGraphLayout layout) {
+        g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        g.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+        g.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 11));
+        FontMetrics fm = g.getFontMetrics();
+        for (Statement s : layout.getEdges()) {
+            Point2D.Double from = layout.position(s.getSubject());
+            Point2D.Double to = layout.position(s.getObject());
+            g.setColor(EDGE);
+            g.draw(new Line2D.Double(from, to));
+            arrowhead(g, from, to);
+            g.setColor(LABEL);
+            String label = Transformers.EDGE.apply(s);
+            g.drawString(label, (float) ((from.x + to.x) / 2 - fm.stringWidth(label) / 2.0), (float) ((from.y + to.y) / 2));
+        }
+        for (RDFNode v : layout.getVertices()) {
+            Point2D.Double p = layout.position(v);
+            g.setColor(VERTEX);
+            g.fillOval((int) p.x - VERTEX_RADIUS, (int) p.y - VERTEX_RADIUS, 2 * VERTEX_RADIUS, 2 * VERTEX_RADIUS);
+            g.setColor(LABEL);
+            g.drawString(Transformers.NODE.apply(v), (float) p.x + VERTEX_RADIUS + 2, (float) p.y + fm.getAscent() / 2f);
+        }
+    }
 
-        Writer out = new FileWriter(f);
-        svgGenerator.stream(out, true);
+    private static void arrowhead(Graphics2D g, Point2D.Double from, Point2D.Double to) {
+        double angle = Math.atan2(to.y - from.y, to.x - from.x);
+        // Tip on the target vertex's rim, not its centre.
+        double tipX = to.x - Math.cos(angle) * VERTEX_RADIUS, tipY = to.y - Math.sin(angle) * VERTEX_RADIUS;
+        double size = 8, spread = Math.PI / 7;
+        Path2D.Double head = new Path2D.Double();
+        head.moveTo(tipX, tipY);
+        head.lineTo(tipX - size * Math.cos(angle - spread), tipY - size * Math.sin(angle - spread));
+        head.lineTo(tipX - size * Math.cos(angle + spread), tipY - size * Math.sin(angle + spread));
+        head.closePath();
+        g.fill(head);
     }
 }

@@ -22,11 +22,12 @@
 package com.hitorro.analysis.rdf;
 
 
-import org.apache.commons.collections15.Transformer;
 import org.apache.jena.rdf.model.RDFNode;
 import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.rdf.model.Statement;
 import org.apache.jena.shared.PrefixMapping;
+
+import java.util.function.Function;
 
 /**
  * @author pldms
@@ -48,9 +49,9 @@ public class Transformers {
         return "<" + resource.getURI() + ">";
     }
 
-    public static class NodeT implements Transformer<RDFNode, String> {
+    public static class NodeT implements Function<RDFNode, String> {
 
-        public String transform(RDFNode input) {
+        public String apply(RDFNode input) {
             if (input.isLiteral()) {
                 return input.toString();
             } else {
@@ -60,9 +61,9 @@ public class Transformers {
 
     }
 
-    public static class EdgeT implements Transformer<Statement, String> {
+    public static class EdgeT implements Function<Statement, String> {
 
-        public String transform(Statement input) {
+        public String apply(Statement input) {
             return Transformers.toString(input.getPredicate());
         }
 
