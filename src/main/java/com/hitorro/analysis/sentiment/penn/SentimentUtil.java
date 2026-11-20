@@ -33,7 +33,7 @@ public class SentimentUtil {
     public static BasefileProperty BaseDirProperty = new BasefileProperty("sentiment.penndir", "", "file://${ht_data}/sentiment/penn/en/subjclueslen1-HLTEMNLP05.tff");
 
     ///ht/hitorro/data/sentiment/penn/en
-    public static AbstractIterator<com.fasterxml.jackson.databind.node.ObjectNode> getRawValues() {
+    public static AbstractIterator<tools.jackson.databind.node.ObjectNode> getRawValues() {
         BaseFile dir = BaseDirProperty.apply();
         return BaseFileUtil.bf2lineiter.apply(dir).map(CommandArgsMapper.instance);
     }

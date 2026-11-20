@@ -21,8 +21,8 @@
  */
 package com.hitorro.analysis.access.vector;
 
-import com.fasterxml.jackson.databind.node.JsonNodeFactory;
-import com.fasterxml.jackson.databind.node.ObjectNode;
+import tools.jackson.databind.node.JsonNodeFactory;
+import tools.jackson.databind.node.ObjectNode;
 import gnu.trove.iterator.TIntIntIterator;
 import com.hitorro.basetext.inverter.TermVectorsGeneratorBase;
 import com.hitorro.language.IsoLanguage;
@@ -33,7 +33,7 @@ public class TermVectorsGenerator extends TermVectorsGeneratorBase {
     }
 
     public void setInfo(ObjectNode node) {
-        node.put("mapping", termsId.getMap());
+        node.set("mapping", termsId.getMap());
 
         ObjectNode freq = JsonNodeFactory.instance.objectNode();
         TIntIntIterator iter = masterCounts.iterator();

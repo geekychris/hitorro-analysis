@@ -22,10 +22,10 @@
 package com.hitorro.obj.core.solr.retrievalmodules.summarizer;
 
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.node.ArrayNode;
-import com.fasterxml.jackson.databind.node.JsonNodeFactory;
-import com.fasterxml.jackson.databind.node.ObjectNode;
+import tools.jackson.databind.JsonNode;
+import tools.jackson.databind.node.ArrayNode;
+import tools.jackson.databind.node.JsonNodeFactory;
+import tools.jackson.databind.node.ObjectNode;
 import com.hitorro.analysis.sentenceenumeration.SEBuilder;
 import com.hitorro.analysis.sentenceenumeration.collectingscorer.CollectingSentenceWrapper;
 import com.hitorro.analysis.sentenceenumeration.collectingscorer.PhraseCollection;
@@ -153,7 +153,7 @@ class SummarizerMapper implements Mapper<JVS, JVS> {
                 PhraseCollection pc = w.getPhraseCollection();
                 if (pc.getSize() > 0) {
                     ArrayNode hits = JsonNodeFactory.instance.arrayNode();
-                    on.put("hits", hits);
+                    on.set("hits", hits);
                     for (int i = 0; i < pc.getSize(); i++) {
                         PhraseHit ph = pc.getPhraseHitCopy(i);
                         ObjectNode h = JsonNodeFactory.instance.objectNode();

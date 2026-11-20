@@ -21,7 +21,7 @@
  */
 package com.hitorro.analysis.cky.model;
 
-import com.fasterxml.jackson.databind.JsonNode;
+import tools.jackson.databind.JsonNode;
 import com.hitorro.analysis.cky.ling.Tree;
 import com.hitorro.analysis.cky.ling.Trees;
 import com.hitorro.analysis.cky.ling.transformers.FunctionNodeStripper;
