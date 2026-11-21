@@ -7,7 +7,7 @@
     
     <groupId>com.hitorro</groupId>
     <artifactId>hitorro-analysis</artifactId>
-    <version>3.0.2</version>
+    <version>4.0.0</version>
     <packaging>jar</packaging>
     
     <name>Hitorro Analysis</name>
@@ -21,7 +21,7 @@
         <maven.compiler.target>21</maven.compiler.target>
         
         <!-- Hitorro internal versions -->
-        <hitorro.version>3.0.2</hitorro.version>
+        <hitorro.version>4.0.0</hitorro.version>
         
         <!-- External library versions -->
         <trove4j.version>3.0.3</trove4j.version>
@@ -107,9 +107,17 @@
                 <version>3.30.17</version>
             </dependency>
             <dependency>
+                <groupId>tools.jackson</groupId>
+                <artifactId>jackson-bom</artifactId>
+                <version>3.1.8</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- Jackson 2 still arrives through solr-core (via hitorro-objretrieval): pinned for security -->
+            <dependency>
                 <groupId>com.fasterxml.jackson</groupId>
                 <artifactId>jackson-bom</artifactId>
-                <version>2.18.12</version>
+                <version>2.21.8</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -455,12 +463,12 @@
         <dependency>
             <groupId>com.hitorro</groupId>
             <artifactId>hitorro-streams</artifactId>
-            <version>3.0.2</version>
+            <version>4.0.0</version>
         </dependency>
         <dependency>
             <groupId>com.hitorro</groupId>
             <artifactId>hitorro-basefile</artifactId>
-            <version>3.0.2</version>
+            <version>4.0.0</version>
         </dependency>
         <!-- Hitorro internal dependencies -->
         <dependency>
@@ -471,13 +479,13 @@
         <dependency>
             <groupId>com.hitorro</groupId>
             <artifactId>hitorro-jsontypesystem</artifactId>
-            <version>3.0.2</version>
+            <version>4.0.0</version>
         </dependency>
         <dependency>
             <groupId>com.hitorro</groupId>
             <artifactId>hitorro-objretrieval</artifactId>
-            <!-- 3.0.3: without Solr's end-of-life Jetty 10 -->
-            <version>3.0.3</version>
+            <!-- 3.0.3+: without Solr's end-of-life Jetty 10 -->
+            <version>4.0.0</version>
         </dependency>
         
         <!-- Trove collections (high-performance data structures) -->

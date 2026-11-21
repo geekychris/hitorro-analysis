@@ -21,10 +21,10 @@
  */
 package com.hitorro.analysis.access.vector;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.node.ArrayNode;
-import com.fasterxml.jackson.databind.node.JsonNodeFactory;
-import com.fasterxml.jackson.databind.node.ObjectNode;
+import tools.jackson.databind.JsonNode;
+import tools.jackson.databind.node.ArrayNode;
+import tools.jackson.databind.node.JsonNodeFactory;
+import tools.jackson.databind.node.ObjectNode;
 import com.hitorro.jsontypesystem.JVS;
 import com.hitorro.obj.core.solr.RetrievalContext;
 import com.hitorro.obj.core.solr.retrievalmodules.RetrievalAggregate;
@@ -101,7 +101,7 @@ public class TermVectorIterator extends AbstractIterator<JVS> implements Retriev
     public JVS getAggregate(final RetrievalContext context) {
         ObjectNode root = JsonNodeFactory.instance.objectNode();
         root.put("type", "core_termvector");
-        root.put("rows", rows);
+        root.set("rows", rows);
         generator.setInfo(root);
         return new JVS(root);
     }

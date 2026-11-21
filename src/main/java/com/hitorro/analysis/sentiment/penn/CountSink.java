@@ -21,7 +21,7 @@
  */
 package com.hitorro.analysis.sentiment.penn;
 
-import com.fasterxml.jackson.databind.JsonNode;
+import tools.jackson.databind.JsonNode;
 import com.hitorro.jsontypesystem.JVS;
 import com.hitorro.util.CounterMap;
 import com.hitorro.util.core.iterator.sinks.Sink;
@@ -29,6 +29,7 @@ import com.hitorro.util.core.params.JsonKeyMap;
 import com.hitorro.util.json.keys.propaccess.PropaccessError;
 
 import java.util.List;
+import com.hitorro.util.json.JsonValues;
 
 
 public class CountSink implements Sink<JVS> {
@@ -54,7 +55,7 @@ public class CountSink implements Sink<JVS> {
         try {
             List<JsonKeyMap> l = o.getSubMaps("");
             for (JsonKeyMap entry : l) {
-                counter.incrementCount(entry.getKey(), entry.getValue().textValue(), 1.0);
+                counter.incrementCount(entry.getKey(), JsonValues.textValue(entry.getValue()), 1.0);
             }
         } catch (PropaccessError propaccessError) {
             return false;

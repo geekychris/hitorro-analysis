@@ -21,7 +21,7 @@
  */
 package com.hitorro.analysis.cky.oldcky;
 
-import com.fasterxml.jackson.databind.JsonNode;
+import tools.jackson.databind.JsonNode;
 import com.hitorro.util.core.opers.HTPredicate;
 
 import java.util.ArrayList;

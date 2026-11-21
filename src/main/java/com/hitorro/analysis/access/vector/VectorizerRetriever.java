@@ -21,7 +21,7 @@
  */
 package com.hitorro.analysis.access.vector;
 
-import com.fasterxml.jackson.databind.JsonNode;
+import tools.jackson.databind.JsonNode;
 import com.hitorro.jsontypesystem.JVS;
 import com.hitorro.language.Iso639Table;
 import com.hitorro.obj.core.solr.RetrievalContext;

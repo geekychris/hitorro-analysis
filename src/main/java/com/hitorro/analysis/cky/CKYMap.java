@@ -21,9 +21,9 @@
  */
 package com.hitorro.analysis.cky;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.node.ArrayNode;
-import com.fasterxml.jackson.databind.node.JsonNodeFactory;
+import tools.jackson.databind.JsonNode;
+import tools.jackson.databind.node.ArrayNode;
+import tools.jackson.databind.node.JsonNodeFactory;
 import com.hitorro.analysis.cky.ling.PennTreeRenderer;
 import com.hitorro.analysis.cky.ling.Tree;
 import com.hitorro.analysis.cky.model.Grammar;
@@ -34,6 +34,7 @@ import com.hitorro.analysis.cky.parser.CKYParser;
 import com.hitorro.util.core.iterator.JsonValueSource;
 import com.hitorro.util.core.iterator.mappers.BaseMapper;
 import com.hitorro.util.core.string.StringUtil;
+import com.hitorro.util.json.JsonValues;
 
 
 public class CKYMap extends BaseMapper<JsonValueSource, JsonValueSource> {
@@ -84,14 +85,14 @@ public class CKYMap extends BaseMapper<JsonValueSource, JsonValueSource> {
                 getParse(fromNode, toNode);
             }
         } else {
-            e.setValue(e, to, getParse(f.textValue()));
+            e.setValue(e, to, getParse(JsonValues.textValue(f)));
         }
     }
 
     private void getParse(ArrayNode nodeFrom, ArrayNode nodeTo) {
         int size = nodeFrom.size();
         for (int i = 0; i < size; i++) {
-            String parse = getParse(nodeFrom.get(i).textValue());
+            String parse = getParse(JsonValues.textValue(nodeFrom.get(i)));
             if (StringUtil.nullOrEmptyString(parse)) {
                 return;
             }
